@@ -32,26 +32,10 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 .col-xs-12">
                     <div class="widget">
-                        <h2 class="heading">Enviar un Mensaje a la ACLAV</h2>
-                        <div class="contact-forms">
-                            <form>
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-12 .col-xs-12">
-                                        <input type="text" placeholder="Nombre" />
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 .col-xs-12">
-                                        <input type="text" placeholder="Email" />
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 .col-xs-12">
-                                        <input type="text" placeholder="Subject" />
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-12 .col-xs-12">
-                                        <textarea placeholder="Mensaje"></textarea>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 .col-xs-12">
-                                        <button type="button" class="btn btn-primary backcolor"><span>Enviar Mensaje</span><i class="glyphicon glyphicon-thumbs-up"></i></button>
-                                        <p>Asegúrese de poner un email válido.</p>
-                                    </div>
+                      <div class="contact-forms">
+                        <form>
+                          <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 .col-xs-12"> </div>
                                 </div>
                             </form>
                         </div>
