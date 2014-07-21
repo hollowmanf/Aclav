@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Punto x Punto</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        #contenedor-mains
+{
+background:#000;
+width:450px;
+}
+#contenedor-mains div
+{
+float:left;
+border:2px solid #ffffff;
+background:#fff;
+width:120px;
+margin:10px;
+}
+
+ .btn-huge{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+</style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="contenedor-mains">
+           <div><center><img src="images/escudo1.png" width="104" height="104"></center></div>
+           <div></div>
+           <div><center><img src="images/escudo2.png" width="104" height="104"></center></div>
+</div>
+<br>
+<div id="contenedor-mains">
+           <div class="input-group">
+        <span class="input-group-btn">
+      <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-minus"></span>
+        </button>
+          </span>
+          <input type="text" name="quant[1]" class="form-control input-number" value="0" min="1" max="100">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+      </div>
+           <div></div>
+  <div class="input-group">
+        <span class="input-group-btn">
+        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                <span class="glyphicon glyphicon-minus"></span>
+        </button>
+    </span>
+          <input type="text" name="quant[2]" class="form-control input-number" value="0" min="1" max="100">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+</div>
+  
+<div id="contenedor-mains">
+           <div class="input-group">
+        <span class="input-group-btn">
+      <button type="button" class="btn btn-danger btn-number" disabled="disabled" data-type="minus" data-field="quant[3]">
+<span class="glyphicon glyphicon-arrow-left"></span>
+              </button>
+          </span>
+          <input type="text" name="quant[3]" class="form-control input-number" value="0" min="1" max="5">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-danger btn-number" data-type="plus" data-field="quant[3]">
+                  <span class="glyphicon glyphicon-arrow-right"></span>
+              </button>
+          </span>
+      </div>
+           <div><center>SETS</center></div>
+           <div class="input-group">
+        <span class="input-group-btn">
+        <button type="button" class="btn btn-danger btn-number"  disabled="disabled" data-type="minus" data-field="quant[4]">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+        </button>
+          </span>
+          <input type="text" name="quant[4]" class="form-control input-number" value="0" min="1" max="5">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-danger btn-number" data-type="plus" data-field="quant[4]">
+                  <span class="glyphicon glyphicon-arrow-right"></span>
+              </button>
+          </span>
+      </div>
+</div>
+
+
+
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-2">
+            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge">Saque</a>
+        </div>
+        <div class="col-md-2">
+            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge">Saque</a>
+        </div>
+         <div class="col-md-3">
+            <a href="#" class="btn btn-info btn-lg btn-block btn-huge">Test button</a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" class="btn btn-warning btn-lg btn-block btn-huge">Test button</a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" class="btn btn-danger btn-lg btn-block btn-huge">Test button</a>
+        </div>
+      </div>
+      </div>
+	<p></p>
+</div><script type="text/javascript">
+//plugin bootstrap minus and plus
+//http://jsfiddle.net/laelitenetwork/puJ6G/
+$('.btn-number').click(function(e){
+    e.preventDefault();
+    
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+            
+            if(currentVal > input.attr('min')) {
+                input.val(currentVal - 1).change();
+            } 
+            if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if(type == 'plus') {
+
+            if(currentVal < input.attr('max')) {
+                input.val(currentVal + 1).change();
+            }
+            if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+    
+    minValue =  parseInt($(this).attr('min'));
+    maxValue =  parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+    
+    name = $(this).attr('name');
+    if(valueCurrent >= minValue) {
+        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the minimum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    if(valueCurrent <= maxValue) {
+        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the maximum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    
+    
+});
+$(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });</script>
+</body>
+</html>
